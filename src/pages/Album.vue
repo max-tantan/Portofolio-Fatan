@@ -1,7 +1,116 @@
 <script setup>
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import RevealBlock from '../components/RevealBlock.vue'
 import { albumWorks } from '../data/Data'
+
+const albumScroller = ref(null)
+const cardRefs = ref([])
+const activeIndex = ref(0)
+const isPointerDown = ref(false)
+
+let dragState = null
+
+const activeWork = computed(() => albumWorks[activeIndex.value] ?? albumWorks[0])
+
+const setCardRef = (element, index) => {
+  if (element) {
+    cardRefs.value[index] = element
+  }
+}
+
+const updateActiveFromScroll = () => {
+  const scroller = albumScroller.value
+
+  if (!scroller) {
+    return
+  }
+
+  const scrollerCenter = scroller.scrollLeft + (scroller.clientWidth / 2)
+  let closestIndex = 0
+  let closestDistance = Number.POSITIVE_INFINITY
+
+  cardRefs.value.forEach((card, index) => {
+    if (!card) {
+      return
+    }
+
+    const cardCenter = card.offsetLeft + (card.offsetWidth / 2)
+    const distance = Math.abs(cardCenter - scrollerCenter)
+
+    if (distance < closestDistance) {
+      closestDistance = distance
+      closestIndex = index
+    }
+  })
+
+  activeIndex.value = closestIndex
+}
+
+const scrollToCard = (index) => {
+  const nextIndex = Math.max(0, Math.min(index, albumWorks.length - 1))
+  const card = cardRefs.value[nextIndex]
+
+  if (!card) {
+    return
+  }
+
+  card.scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest',
+    inline: 'center',
+  })
+
+  activeIndex.value = nextIndex
+}
+
+const scrollByDirection = (direction) => {
+  scrollToCard(activeIndex.value + direction)
+}
+
+const handlePointerDown = (event) => {
+  const scroller = albumScroller.value
+
+  if (!scroller || event.pointerType === 'touch') {
+    return
+  }
+
+  dragState = {
+    pointerId: event.pointerId,
+    startX: event.clientX,
+    startScrollLeft: scroller.scrollLeft,
+  }
+
+  isPointerDown.value = true
+  scroller.setPointerCapture(event.pointerId)
+}
+
+const handlePointerMove = (event) => {
+  const scroller = albumScroller.value
+
+  if (!scroller || !dragState || dragState.pointerId !== event.pointerId) {
+    return
+  }
+
+  const delta = event.clientX - dragState.startX
+  scroller.scrollLeft = dragState.startScrollLeft - delta
+}
+
+const clearPointerState = (event) => {
+  const scroller = albumScroller.value
+
+  if (dragState && scroller?.hasPointerCapture?.(event.pointerId)) {
+    scroller.releasePointerCapture(event.pointerId)
+  }
+
+  dragState = null
+  isPointerDown.value = false
+}
+
+onMounted(async () => {
+  await nextTick()
+  updateActiveFromScroll()
+})
 </script>
 
 <template>
@@ -32,26 +141,65 @@ import { albumWorks } from '../data/Data'
     </RevealBlock>
 
     <!-- Album scroller section -->
-    <RevealBlock as="section" :delay="100" class="space-y-4">
-      <div class="flex items-center justify-between gap-4">
-        <div>
+    <RevealBlock as="section" :delay="100" class="space-y-5">
+      <div class="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
+        <div class="max-w-2xl">
           <p class="text-sm uppercase tracking-[0.22em] text-stone-400">Swipe gallery</p>
           <h2 class="mt-2 text-2xl font-semibold text-white">Geser untuk menjelajahi karya visual.</h2>
+          <p class="mt-3 text-sm leading-7 text-stone-400 sm:text-base">
+            Setiap kartu dibuat seperti lembar karya di meja kreatif, tapi sekarang interaksinya lebih stabil
+            supaya eksplorasinya terasa nyaman di desktop maupun mobile.
+          </p>
         </div>
-        <p class="hidden text-sm text-stone-500 md:block">Drag, swipe, atau scroll ke samping.</p>
+
+        <div class="album-toolbar">
+          <div class="album-status">
+            <p class="text-xs uppercase tracking-[0.22em] text-amber-300">Now viewing</p>
+            <h3 class="mt-2 text-lg font-semibold text-white">{{ activeWork.title }}</h3>
+            <p class="mt-1 text-sm text-stone-400">{{ activeIndex + 1 }} / {{ albumWorks.length }} • {{ activeWork.type }}</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button type="button" class="album-nav-btn" @click="scrollByDirection(-1)">
+              Prev
+            </button>
+            <button type="button" class="album-nav-btn" @click="scrollByDirection(1)">
+              Next
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div class="album-scroller">
+      <div
+        ref="albumScroller"
+        class="album-scroller"
+        :class="{ 'is-dragging': isPointerDown }"
+        @scroll="updateActiveFromScroll"
+        @pointerdown="handlePointerDown"
+        @pointermove="handlePointerMove"
+        @pointerup="clearPointerState"
+        @pointercancel="clearPointerState"
+        @pointerleave="clearPointerState"
+      >
         <article
           v-for="(work, index) in albumWorks"
           :key="work.title"
           class="album-card"
-          :class="[`album-${work.size}`, `album-rotate-${(index % 4) + 1}`]"
+          :class="[
+            `album-${work.size}`,
+            `album-rotate-${(index % 4) + 1}`,
+            { 'is-active': activeIndex === index },
+          ]"
+          :ref="(element) => setCardRef(element, index)"
+          tabindex="0"
+          @focus="scrollToCard(index)"
+          @mouseenter="activeIndex = index"
         >
           <div class="album-frame">
             <div class="album-art" :class="`bg-gradient-to-br ${work.palette}`">
               <div class="album-art-overlay"></div>
               <div class="album-art-lines"></div>
+              <div class="album-art-glow"></div>
               <div class="album-art-copy">
                 <p class="text-xs uppercase tracking-[0.3em] text-white/70">{{ work.type }}</p>
                 <h3 class="mt-3 text-2xl font-semibold text-white sm:text-3xl">{{ work.title }}</h3>
@@ -69,6 +217,17 @@ import { albumWorks } from '../data/Data'
             </div>
           </div>
         </article>
+      </div>
+
+      <div class="album-progress" aria-hidden="true">
+        <button
+          v-for="(work, index) in albumWorks"
+          :key="`${work.title}-dot`"
+          type="button"
+          class="album-progress-dot"
+          :class="{ 'is-active': activeIndex === index }"
+          @click="scrollToCard(index)"
+        ></button>
       </div>
     </RevealBlock>
 
