@@ -1,6 +1,14 @@
 <script setup>
 import RevealBlock from '../components/RevealBlock.vue'
+import Typewriter from '../components/Typewriter.vue'
 import { certificates, strengths, timeline } from '../data/Data'
+
+const aboutTypewriterTexts = [
+  'Halo, aku Fatan.',
+  'Frontend Developer berbasis Vue.',
+  'Fokus ke UI/UX dan desain modern.',
+  'Suka membangun interface yang clean dan interaktif.',
+]
 </script>
 
 <template>
@@ -9,7 +17,21 @@ import { certificates, strengths, timeline } from '../data/Data'
     <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
       <RevealBlock as="aside" :delay="40" class="surface rounded-[2rem] p-7 sm:p-8">
         <p class="text-sm uppercase tracking-[0.28em] text-amber-300">About</p>
-        <h1 class="mt-5 text-4xl font-semibold leading-tight text-white">Frontend profile with a clean, focused, and professional presentation.</h1>
+        <h1 class="mt-5 text-4xl font-semibold leading-tight text-white">
+          Frontend profile with a clean, focused, and professional presentation.
+        </h1>
+        <div class="mt-5 rounded-[1.5rem] border border-white/10 bg-white/[0.03] px-4 py-4 sm:px-5">
+          <p class="text-xs uppercase tracking-[0.22em] text-stone-500">Typewriter intro</p>
+          <Typewriter
+            :texts="aboutTypewriterTexts"
+            :typing-speed="78"
+            :deleting-speed="42"
+            :pause-delay="1350"
+            class="mt-3"
+            text-class="text-lg font-medium leading-8 text-stone-100 sm:text-xl"
+            cursor-class="text-amber-300"
+          />
+        </div>
         <p class="mt-5 text-base leading-8 text-stone-300">
           Halaman ini dirancang untuk menjelaskan siapa saya, bagaimana saya bekerja, dan kenapa project saya relevan untuk kebutuhan tim atau perusahaan.
         </p>
@@ -39,6 +61,12 @@ import { certificates, strengths, timeline } from '../data/Data'
             tetapi juga memudahkan orang memahami informasi penting dengan cepat. Pendekatan ini cocok untuk portfolio kerja karena memperlihatkan
             cara berpikir, perhatian pada detail, dan kemampuan menyusun pengalaman pengguna yang jelas.
           </p>
+          <div class="mt-6 rounded-[1.5rem] border border-amber-300/10 bg-amber-300/[0.04] px-4 py-4">
+            <p class="text-xs uppercase tracking-[0.22em] text-amber-300">Reusable component</p>
+            <p class="mt-2 text-sm leading-7 text-stone-300">
+              Komponen ini bisa dipakai ulang di hero, section About, atau intro landing page dengan hanya mengganti isi array text dan kecepatannya.
+            </p>
+          </div>
         </RevealBlock>
 
         <!-- Strengths section -->

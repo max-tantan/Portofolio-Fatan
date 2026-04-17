@@ -417,6 +417,62 @@ body {
   filter: blur(6px);
 }
 
+.boot-loader {
+  background:
+    radial-gradient(circle at top, rgba(252, 211, 77, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(12, 10, 9, 0.92), rgba(12, 10, 9, 0.98));
+  backdrop-filter: blur(18px);
+}
+
+.boot-loader-panel {
+  width: min(28rem, 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  background: rgba(28, 25, 23, 0.66);
+  padding: 1.5rem;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+}
+
+.boot-loader-mark {
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #fde68a, #fbbf24);
+  color: #1c1917;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  box-shadow: 0 12px 30px rgba(251, 191, 36, 0.18);
+}
+
+.boot-loader-bar {
+  height: 0.38rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.boot-loader-bar-fill {
+  height: 100%;
+  width: 42%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #fcd34d, #fde68a, rgba(255, 255, 255, 0.95));
+  animation: bootLoad 1.05s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.boot-loader-enter-active,
+.boot-loader-leave-active {
+  transition:
+    opacity 420ms ease,
+    visibility 420ms ease;
+}
+
+.boot-loader-enter-from,
+.boot-loader-leave-to {
+  opacity: 0;
+}
+
 @keyframes floatOrb {
   0%,
   100% {
@@ -425,6 +481,16 @@ body {
 
   50% {
     transform: translate3d(0, 18px, 0) scale(1.04);
+  }
+}
+
+@keyframes bootLoad {
+  0% {
+    transform: translateX(-115%);
+  }
+
+  100% {
+    transform: translateX(270%);
   }
 }
 
@@ -446,7 +512,10 @@ body {
   .page-slide-leave-active,
   .album-card,
   .album-nav-btn,
-  .album-progress-dot {
+  .album-progress-dot,
+  .boot-loader-bar-fill,
+  .boot-loader-enter-active,
+  .boot-loader-leave-active {
     animation: none !important;
     transition: none !important;
   }
