@@ -1,5 +1,6 @@
 import alienStoreImg from '../assets/AlienStore/alienstore.png'
 import healthVerseImg from '../assets/HealthVerse/HealthVerse.png'
+import posImg from '../assets/POS/POS.png'
 
 export const projects = [
   {
@@ -41,6 +42,7 @@ export const projects = [
   },
   {
     title: 'POS',
+    image: posImg,
     description: 'Sistem point of sale untuk pengelolaan transaksi penjualan dengan fitur inventory dan laporan.',
     tech: ['React', 'Tailwind CSS', 'Node.js'],
     category: 'Web Application',

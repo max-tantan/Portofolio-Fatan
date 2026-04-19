@@ -15,12 +15,7 @@ import { contactLinks } from '../data/Data'
             Bagian ini dibuat sederhana agar recruiter atau client bisa langsung menemukan cara menghubungi saya tanpa distraksi.
           </p>
         </div>
-        <div class="rounded-[1.5rem] border border-amber-300/30 bg-amber-300 p-6 text-stone-950">
-          <p class="text-sm uppercase tracking-[0.22em] text-stone-700">Best use</p>
-          <p class="mt-4 text-sm leading-7 text-stone-800">
-            Gunakan section ini untuk menaruh email aktif, LinkedIn, GitHub, dan nanti bisa ditambah CV atau nomor WhatsApp.
-          </p>
-        </div>
+      
       </div>
     </RevealBlock>
 
@@ -46,8 +41,7 @@ import { contactLinks } from '../data/Data'
     <RevealBlock as="div" :delay="240" class="surface rounded-[2rem] p-7 sm:p-8">
       <p class="text-sm uppercase tracking-[0.22em] text-stone-400">Closing note</p>
       <p class="mt-4 max-w-3xl text-base leading-8 text-stone-300">
-        Supaya portfolio ini benar-benar siap dipakai melamar kerja, ganti semua data placeholder dengan identitas, link, project asli,
-        dan pencapaianmu. Struktur halamannya sekarang sudah siap untuk itu.
+        Thanks for visiting my portfolio. I hope my work gives you a glimpse of my passion for frontend development and UI/UX design.
       </p>
     </RevealBlock>
   </section>

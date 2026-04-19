@@ -39,7 +39,7 @@ const aboutTypewriterTexts = [
         <div class="mt-10 space-y-4 border-t border-white/10 pt-6 text-sm text-stone-300">
           <div class="flex items-center justify-between gap-4">
             <span class="text-stone-400">Based in</span>
-            <span>Jakarta, Indonesia</span>
+            <span>Bandung, Indonesia</span>
           </div>
           <div class="flex items-center justify-between gap-4">
             <span class="text-stone-400">Speciality</span>
@@ -61,12 +61,7 @@ const aboutTypewriterTexts = [
             tetapi juga memudahkan orang memahami informasi penting dengan cepat. Pendekatan ini cocok untuk portfolio kerja karena memperlihatkan
             cara berpikir, perhatian pada detail, dan kemampuan menyusun pengalaman pengguna yang jelas.
           </p>
-          <div class="mt-6 rounded-[1.5rem] border border-amber-300/10 bg-amber-300/[0.04] px-4 py-4">
-            <p class="text-xs uppercase tracking-[0.22em] text-amber-300">Reusable component</p>
-            <p class="mt-2 text-sm leading-7 text-stone-300">
-              Komponen ini bisa dipakai ulang di hero, section About, atau intro landing page dengan hanya mengganti isi array text dan kecepatannya.
-            </p>
-          </div>
+         
         </RevealBlock>
 
         <!-- Strengths section -->

@@ -10,15 +10,16 @@ import { skillGroups } from '../data/Data'
       <p class="text-sm uppercase tracking-[0.28em] text-amber-300">Skills</p>
       <div class="mt-5 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <div class="max-w-2xl">
-          <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl">Technical skills and working strengths presented clearly.</h1>
+          <h1 class="text-4xl font-semibold leading-tight text-white sm:text-5xl">Design & Development</h1>
           <p class="mt-4 text-base leading-8 text-stone-300">
-            Halaman ini membantu recruiter melihat kemampuan teknis utama, area fokus, dan cara saya menyusun proses kerja.
+            I enjoy turning ideas into interactive and visually pleasing web experiences using modern frontend tools and thoughtful design.
           </p>
         </div>
         <div class="rounded-[1.5rem] border border-white/10 bg-white/5 p-6">
           <p class="text-sm uppercase tracking-[0.22em] text-stone-400">Positioning</p>
           <p class="mt-4 text-sm leading-7 text-stone-300">
-            Cocok untuk frontend, web intern, junior web developer, atau role yang membutuhkan presentasi UI yang rapi.
+           Designing Experiences, Building Interfaces
+          Frontend Developer & UI/UX Enthusiast
           </p>
         </div>
       </div>

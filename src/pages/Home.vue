@@ -43,7 +43,7 @@ import { achievements, certificates } from '../data/Data'
           <p class="text-sm uppercase tracking-[0.22em] text-stone-400">Student focus</p>
           <h2 class="mt-4 text-2xl font-semibold text-white">Portfolio yang menunjukkan semangat belajar dan hasil karya.</h2>
           <p class="mt-4 text-sm leading-7 text-stone-300">
-            Section disusun supaya guru, recruiter, atau client bisa cepat melihat profil, skill, project, dan ketertarikan saya di bidang digital.
+            As a vocational high school student in Software Engineering, I focus on developing frontend skills and UI/UX design while continuously improving through real projects.
           </p>
         </RevealBlock>
 
@@ -89,7 +89,7 @@ import { achievements, certificates } from '../data/Data'
       <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-2xl">
           <p class="text-sm uppercase tracking-[0.22em] text-stone-400">Explore sections</p>
-          <h2 class="mt-3 text-3xl font-semibold text-white">Semua bagian penting untuk portfolio siswa sudah tersedia.</h2>
+          <h2 class="mt-3 text-3xl font-semibold text-white">Navigate through my portfolio</h2>
         </div>
         <div class="flex flex-wrap gap-3">
           <RouterLink to="/about" class="btn-secondary">About</RouterLink>

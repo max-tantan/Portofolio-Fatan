@@ -16,9 +16,7 @@ import { projects } from '../data/Data'
             Kumpulan project ini menonjolkan kemampuan menyusun tampilan bersih, struktur konten yang jelas, dan eksekusi frontend yang rapi.
           </p>
         </div>
-        <p class="max-w-sm text-sm leading-7 text-stone-400">
-          Gunakan halaman ini untuk menunjukkan hasil kerja yang paling relevan dengan posisi yang sedang kamu lamar.
-        </p>
+        
       </div>
     </RevealBlock>
 
