@@ -32,15 +32,20 @@ import { projects } from '../data/Data'
         class="surface group rounded-[2rem] p-6 sm:p-8"
       >
         <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div class="project-preview rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6">
+          <div class="project-preview rounded-[1.5rem] border border-white/10 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-6 overflow-hidden">
             <div class="flex h-full min-h-52 flex-col justify-between">
               <div class="flex items-center justify-between text-sm text-stone-400">
                 <span>{{ project.category }}</span>
                 <span>{{ project.year }}</span>
               </div>
-              <div>
+              <div v-if="project.image">
+                <img :src="project.image" :alt="project.title" class="mt-4 w-full rounded-lg object-cover" />
+              </div>
+              <div v-else>
                 <p class="text-sm uppercase tracking-[0.24em] text-amber-300">Case study</p>
-                <h2 class="mt-3 text-3xl font-semibold text-white">{{ project.title }}</h2>
+                <h2 class="mt-3 text-3xl font-semibold text-white">
+                  {{ project.subTitle || project.title }}
+                </h2>
               </div>
             </div>
           </div>

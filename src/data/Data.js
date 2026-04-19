@@ -1,11 +1,15 @@
+import alienStoreImg from '../assets/AlienStore/alienstore.png'
+import healthVerseImg from '../assets/HealthVerse/HealthVerse.png'
+
 export const projects = [
   {
     title: 'AlienStore',
+    image: alienStoreImg,
     description: 'Website belanja online yang terintegrasi API untuk pengelolaan produk dan transaksi.',
     tech: ['React', 'API Integration', 'Boostrap CSS'],
     category: 'E-Commerce Website',
     year: '2025',
-    role: 'Frontend Developer',
+    role: 'Team Leader And Frontend Developer',
     impact: 'Memiliki fitur product listing, detail produk, dan sistem keranjang, serta meraih Juara Favorit di Informind Fest 2025.',
     links: [
       {
@@ -19,32 +23,34 @@ export const projects = [
     ],
   },
   {
-    title: 'HealthCare Web3',
+    title: 'HealthVerse',
+    subTitle: 'HealthCare Web3',
+    image: healthVerseImg,
     description: 'Desain aplikasi kesehatan berbasis Web3 dengan fokus pada keamanan data dan pengalaman pengguna.',
     tech: ['Figma'],
     category: 'UI/UX Project',
     year: '2025',
-    role: 'UI/UX Designer',
+    role: 'Team Leader And UI/UX Designer',
     impact: 'Berfokus pada UX flow, wireframe, dan prototype, serta dipresentasikan di IT Fair XIV.',
     links: [
       {
         label: 'Ask for Case Study',
-        href: 'mailto:fatannurrizqi@gmail.com?subject=HealthCare%20Web3%20Case%20Study',
+        href: 'https://www.figma.com/design/OSkjab3GpTPGGalTAAU39b/Projek-HealthVerse?node-id=0-1&t=PHiklIJrS3i303Dv-1',
       },
     ],
   },
   {
-    title: 'NextSkills',
-    description: 'Proyek desain UI/UX sebagai bagian dari pembelajaran intensif untuk memperkuat dasar desain digital.',
-    tech: ['Figma'],
-    category: 'UI/UX Project',
+    title: 'POS',
+    description: 'Sistem point of sale untuk pengelolaan transaksi penjualan dengan fitur inventory dan laporan.',
+    tech: ['React', 'Tailwind CSS', 'Node.js'],
+    category: 'Web Application',
     year: '2025',
-    role: 'UI/UX Design Learner',
-    impact: 'Berfokus pada layouting, visual hierarchy, dan user flow dengan tujuan mengasah fundamental design thinking.',
+    role: 'Team Leader',
+    impact: 'Mengkoordinasikan tim pengembang dalam merancang dan membangun sistem POS yang efisien.',
     links: [
       {
         label: 'Ask for Details',
-        href: 'mailto:fatannurrizqi@gmail.com?subject=NextSkills%20Project',
+        href: 'mailto:fatannurrizqi@gmail.com?subject=POS%20Project',
       },
     ],
   },
@@ -54,7 +60,7 @@ export const projects = [
     tech: ['GFX', 'Poster Design', 'Photo Editing', 'Video Editing'],
     category: 'Creative Visual Project',
     year: '2025',
-    role: 'Creative Editor',
+    role: 'Creative Media Designer',
     impact: 'Menunjukkan kemampuan membuat materi visual yang komunikatif, menarik, dan siap dipakai untuk kebutuhan event maupun promosi.',
     links: [
       {
