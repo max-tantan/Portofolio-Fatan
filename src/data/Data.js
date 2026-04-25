@@ -1,4 +1,11 @@
 import alienStoreImg from '../assets/AlienStore/alienstore.png'
+import album1Img from '../assets/Album/Album1.jpeg'
+import album2Img from '../assets/Album/Album2.jpeg'
+import album3Img from '../assets/Album/Album3.jpeg'
+import album4Img from '../assets/Album/Album4.jpeg'
+import album5Img from '../assets/Album/Album5.png'
+import album6Img from '../assets/Album/Album6.png'
+import visualAlbumImg from '../assets/Album/VisualAlbum.jpg'
 import healthVerseImg from '../assets/HealthVerse/HealthVerse.png'
 import posImg from '../assets/POS/POS.png'
 
@@ -58,6 +65,7 @@ export const projects = [
   },
   {
     title: 'Creative Media Design',
+    image: visualAlbumImg,
     description: 'Kumpulan karya visual untuk kebutuhan publikasi digital, promosi, dan branding melalui editing poster, foto, dan video.',
     tech: ['GFX', 'Poster Design', 'Photo Editing', 'Video Editing'],
     category: 'Creative Visual Project',
@@ -187,6 +195,8 @@ export const albumWorks = [
     note: 'Eksplorasi layout promosi dengan tipografi tegas, warna kontras, dan komposisi yang lebih berani.',
     palette: 'from-amber-300 via-orange-400 to-rose-500',
     size: 'wide',
+    image: album1Img,
+    year: '2025',
   },
   {
     title: 'Photo Retouch Study',
@@ -194,6 +204,8 @@ export const albumWorks = [
     note: 'Eksperimen color grading, contrast shaping, dan tone visual untuk hasil yang lebih cinematic.',
     palette: 'from-sky-300 via-cyan-400 to-blue-600',
     size: 'tall',
+    image: album2Img,
+    year: '2025',
   },
   {
     title: 'Social Campaign GFX',
@@ -201,6 +213,8 @@ export const albumWorks = [
     note: 'Konten visual untuk sosial media dengan pendekatan clean, energetic, dan mudah dikenali.',
     palette: 'from-fuchsia-300 via-violet-400 to-indigo-600',
     size: 'medium',
+    image: album3Img,
+    year: '2025',
   },
   {
     title: 'Promotional Video Frames',
@@ -208,6 +222,8 @@ export const albumWorks = [
     note: 'Studi transisi visual dan frame composition untuk materi promosi yang lebih dinamis.',
     palette: 'from-emerald-300 via-teal-400 to-cyan-600',
     size: 'wide',
+    image: album4Img,
+    year: '2025',
   },
   {
     title: 'Editorial Poster Layout',
@@ -215,6 +231,8 @@ export const albumWorks = [
     note: 'Eksplorasi poster dengan nuansa editorial dan whitespace yang kuat agar informasi terasa elegan.',
     palette: 'from-stone-200 via-zinc-300 to-stone-500',
     size: 'tall',
+    image: album5Img,
+    year: '2025',
   },
   {
     title: 'Creative Photo Composition',
@@ -222,5 +240,7 @@ export const albumWorks = [
     note: 'Penggabungan elemen visual dan penataan fokus agar foto terasa lebih hidup dan artistik.',
     palette: 'from-pink-300 via-rose-400 to-red-500',
     size: 'medium',
+    image: album6Img,
+    year: '2025',
   },
 ]

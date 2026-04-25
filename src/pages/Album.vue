@@ -2,6 +2,7 @@
 import { computed, nextTick, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import RevealBlock from '../components/RevealBlock.vue'
+import visualAlbumImg from '../assets/Album/VisualAlbum.jpg'
 import { albumWorks } from '../data/Data'
 
 const albumScroller = ref(null)
@@ -196,7 +197,8 @@ onMounted(async () => {
           @mouseenter="activeIndex = index"
         >
           <div class="album-frame">
-            <div class="album-art" :class="`bg-gradient-to-br ${work.palette}`">
+            <div class="album-art">
+              <img :src="work.image" :alt="work.title" class="album-art-image" loading="lazy" />
               <div class="album-art-overlay"></div>
               <div class="album-art-lines"></div>
               <div class="album-art-glow"></div>
@@ -209,7 +211,7 @@ onMounted(async () => {
             <div class="album-meta">
               <div class="flex items-center justify-between gap-4">
                 <span class="album-pill">{{ work.type }}</span>
-                <span class="text-xs uppercase tracking-[0.2em] text-stone-500">2025</span>
+                <span class="text-xs uppercase tracking-[0.2em] text-stone-500">{{ work.year }}</span>
               </div>
               <p class="mt-4 text-sm leading-7 text-stone-300">
                 {{ work.note }}
@@ -240,6 +242,9 @@ onMounted(async () => {
           Berbeda dari halaman portfolio utama yang cenderung tenang, bagian album ini sengaja dibuat lebih playful
           agar karakter karya poster, foto, dan video editing bisa terasa lebih hidup.
         </p>
+        <div class="album-visual-preview mt-6">
+          <img :src="visualAlbumImg" alt="Creative Media Design visual album" class="album-visual-image" />
+        </div>
       </RevealBlock>
 
       <RevealBlock as="article" :delay="200" class="album-board rounded-[2rem] p-7 sm:p-8">
@@ -259,7 +264,7 @@ onMounted(async () => {
           </div>
           <div class="album-note rotate-[-1deg]">
             <p class="text-xs uppercase tracking-[0.18em] text-stone-600">Next step</p>
-            <p class="mt-3 text-base leading-7 text-stone-800">Nanti kita bisa ganti card ini dengan gambar asli karya kamu supaya album terasa lebih personal.</p>
+            <p class="mt-3 text-base leading-7 text-stone-800">Album ini sekarang sudah memakai gambar karya asli, termasuk visual utama dari project album pertamamu.</p>
           </div>
         </div>
       </RevealBlock>
